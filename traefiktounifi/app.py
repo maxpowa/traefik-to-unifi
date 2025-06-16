@@ -29,7 +29,7 @@ def sync():
     print(f"The value of UNIFI_URL is: {unifi_url}")
     print(f"The value of TRAEFIK_API_URL is: {traefik_api_url}")
 
-    traefik_routers_response = requests.get(f"{traefik_api_url}http/routers")
+    traefik_routers_response = requests.get(f"{traefik_api_url}http/routers", verify=!ignore_ssl_warnings)
 
     if traefik_routers_response.status_code != 200:
         raise ValueError(
